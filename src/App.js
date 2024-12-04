@@ -1,10 +1,16 @@
-import './App.css';
-import Tasklist from './components/Tasklist';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import Tasklist from "./components/Tasklist.js";
+import Addtask from "./components/Addtask.js"
+
 function App() {
   return (
-    <div className="App">
-      <Tasklist/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/add" element={<Addtask/>} />
+        <Route path="/" element={<Tasklist />} />
+      </Routes>
+    </Router>
   );
 }
 

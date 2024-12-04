@@ -1,370 +1,253 @@
-.task-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .task-form input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
   
-  .task-form input[type="text"] {
-    background-color: #f9f9f9;
-  }
-  
-  .task-form input[type="date"] {
-    background-color: #f9f9f9;
-  }
-  
-  .task-form input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  .task-form label {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
-  
-  /* Button styles */
-  .task-form button {
-    padding: 12px 20px;
-    background-color: #5c6bc0;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-  }
-  
-  .task-form button:hover {
-    background-color: #3f4e9b;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
-    .task-form {
-      width: 90%;
-    }
-  
-    .task-form input,
-    .task-form button {
-      font-size: 0.9rem;
-    }
-  }
-/* Task Completed Checkbox Styling */
-.task-form input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    appearance: none;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .task-form input[type="checkbox"]:checked {
-    background-color: #5c6bc0;
-    border-color: #5c6bc0;
-    position: relative;
-  }
-  
-  .task-form input[type="checkbox"]:checked::before {
-    content: '\2713'; /* Checkmark character */
-    color: white;
-    font-size: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .task-form input[type="checkbox"]:hover {
-    border-color: #5c6bc0;
-  }
-  
-  .task-form label {
-    font-size: 1rem;
-    color: #555;
-    display: inline-block;
-    font-weight: 500;
-    margin-left: 8px;
-  }
-  
-  .task-form input[type="checkbox"]:checked + label {
-    color: #5c6bc0; /* Change label color when checked */
-  }
-  
-
-/* Small Card Styling */
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 10px 0;
-    width: 250px; /* Set the width of the card */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    display: inline-block;
-    vertical-align: top;
-  }
-  
-  .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-    font-weight: 600;
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   
-  .card-description {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .card-due-date {
-    font-size: 0.9rem;
-    color: #999;
-  }
-  
-  .card-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .card-button {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 45%;
-  }
-  
-  .card-button:hover {
-    opacity: 0.8;
-  }
-  
-  .card-button.delete {
-    background-color: #f44336;
-    color: white;
-    border: none;
-  }
-  
-  .card-button.update {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-  }
-  
-  /* Status text styling */
-  .card-status {
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-top: 8px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    display: inline-block;
-  }
-  
-  .card-status.completed {
-    background-color: #d1e7dd;
-    color: #3e8e41;
-  }
-  
-  .card-status:not(.completed) {
-    background-color: #f8d7da;
-    color: #721c24;
-  }
-  
-  /* Completed task card styles */
-  .card.completed {
-    background-color: #e7f4e7; /* Light green for completed tasks */
-    border-left: 5px solid #4caf50;
-  }
-  
-  .card.completed .card-title,
-  .card.completed .card-description {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  .card.completed .card-due-date {
-    color: #888;
-  }
-  
-  @media (max-width: 480px) {
-    .card {
-      max-width: 90%;
-      padding: 15px;
-    }
-  
-    .card-title {
-      font-size: 1.5rem;
-    }
-  
-    .card-description {
-      font-size: 0.9rem;
-    }
-  
-    .card-due-date {
-      font-size: 0.8rem;
-    }
-  
-    .card-button {
-      padding: 6px 10px;
-      font-size: 0.8rem;
-    }
-  }
-  
-
-  /* Modal Overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  /* Modal Box */
-  .modal {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 400px;
+  /* Header */
+  h1 {
+    color: #5c6bc0;
     text-align: center;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    font-size: 2rem;
   }
   
-  /* Modal Header */
-  .modal h3 {
-    margin: 0 0 10px;
-    font-size: 1.5rem;
-    color: #333333;
-  }
-  
-  /* Modal Text */
-  .modal p {
-    font-size: 1rem;
-    color: #555555;
-    margin-bottom: 20px;
-  }
-  
-  /* Modal Actions */
-  .modal-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  /* Modal Buttons */
-  .modal-button {
-    padding: 10px 15px;
+  button {
+    font-size: 16px;
+    background-color: #5c6bc0;
+    color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
   }
   
-  /* Cancel Button */
-  .modal-button.cancel {
-    background-color: #ddd;
+  button:hover {
+    background-color: #4c5bbf;
   }
   
-  .modal-button.cancel:hover {
-    background-color: #bbb;
+  button:focus {
+    outline: none;
   }
   
-  /* Confirm Button */
-  .modal-button.confirm {
-    background-color: #dc3545;
-    color: #ffffff;
+  /* Task Container */
+  .task-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
   }
   
-  .modal-button.confirm:hover {
-    background-color: #a71d2a;
-  }
-
-  /* Search Bar */
-.search-bar {
+  .search-bar {
     width: 100%;
-    max-width: 400px;
     padding: 10px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .search-bar:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+    border-color: #5c6bc0;
   }
   
-
+  /* Filters */
   .filters {
     display: flex;
-    gap: 10px; /* Add spacing between buttons */
-    margin: 20px 0; /* Add some margin around the filter section */
-    justify-content: center; /* Center the filter buttons */
+    justify-content: center;
+    margin-bottom: 20px;
   }
   
   .filters button {
-    background-color: #f0f0f0; /* Light gray background */
-    color: #333; /* Darker text */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Padding for clickable size */
-    font-size: 14px; /* Adjust font size */
-    cursor: pointer; /* Change cursor on hover */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
   }
   
   .filters button:hover {
-    background-color: #007bff; /* Change to blue on hover */
-    color: #fff; /* White text on hover */
+    background-color: #e6e6e6;
   }
   
-  .filters button.active {
-    background-color: #007bff; /* Blue background for active state */
-    color: #fff; /* White text for active state */
-    border-color: #0056b3; /* Darker blue border for active state */
+  .filters .active {
+    background-color: #5c6bc0;
+    color: white;
+    border-color: #5c6bc0;
+  }
+  
+  .filters button:focus {
+    outline: none;
+  }
+  
+  /* Task Cards */
+  .task-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .card .buttons{
+    display: flex;
+    gap: 8px;
+  }
+  .completed {
+    background: linear-gradient(135deg, #dbe2d3, #56ab2f);
+    color: #fff; 
+    border-left: 9px solid #4caf50; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    margin: 10px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card button {
+    padding: 8px 15px;
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .card button:hover {
+    background-color: #ff5722;
+  }
+  
+  .card label {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .card input[type="checkbox"] {
+   
+    width: 20px;
+  }
+  
+  /* Modal */
+  
+  
+  .modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .modal h3 {
+    margin-bottom: 15px;
+  }
+  
+  .modal .modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .modal .cancel {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .modal .cancel:hover {
+    background-color: #bbb;
+  }
+  
+  .modal .confirm {
+    background-color: #5c6bc0;
+    color: white;
+  }
+  
+  .modal .confirm:hover {
+    background-color: #4c5bbf;
+  }
+  
+  .modal .modal-button:focus {
+    outline: none;
+  }
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .modal-button.cancel {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .modal-button.confirm {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  input,
+  textarea {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 100px;
   }
   
